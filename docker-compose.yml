@@ -1,0 +1,16 @@
+version: '2'
+services:
+  project:
+    build: .
+    links:
+      - redis
+    environment:
+          - REDIS_HOST=redis
+    volumes:
+      - .:/var/app
+  redis:
+    image: redis
+    logging:
+          driver: "none"
+    ports:
+      - 6379:6379
