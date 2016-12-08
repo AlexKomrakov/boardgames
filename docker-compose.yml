@@ -4,6 +4,7 @@ services:
     build: .
     links:
       - redis
+    command: "bash -c '/usr/local/bin/composer install && vendor/phpunit/phpunit/phpunit'"
     environment:
           - REDIS_HOST=redis
     volumes:
